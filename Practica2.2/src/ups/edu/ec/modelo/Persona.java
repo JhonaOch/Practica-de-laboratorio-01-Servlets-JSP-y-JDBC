@@ -1,42 +1,43 @@
 package ups.edu.ec.modelo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Persona {
-
-	private String nombres;
+public class Persona implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+    private String nombres;
 	private String apellidos;
 	private String cedula;
 	private String correo;
 	private String contrasena;
-	private List<Telefono> Lista;
+	private int activo;
+	private List<Telefono> lista;
 	
 	
-	public List<Telefono> getLista() {
-		return Lista;
+	public Persona() {	
 	}
-
-
-	public void setLista(List<Telefono> lista) {
-		Lista = lista;
-	}
-
+	
+	public Persona(String cedula, String nombres, String apellidos, String correo, String contrasena, int activo) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.activo = activo;
+    }
 
 	public String getNombres() {
 		return nombres;
 	}
 
-
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
 
-
-
 	public String getApellidos() {
 		return apellidos;
 	}
-
 
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
@@ -46,11 +47,9 @@ public class Persona {
 		return cedula;
 	}
 
-
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-
 
 	public String getCorreo() {
 		return correo;
@@ -64,18 +63,39 @@ public class Persona {
 		return contrasena;
 	}
 
-
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
 
-
-	public Persona() {
-		// TODO Auto-generated constructor stub
-		
-		
-		
-		
+	public int getActivo() {
+		return activo;
 	}
+
+	public void setActivo(int activo) {
+		this.activo = activo;
+	}
+
+	public List<Telefono> getLista() {
+		return lista;
+	}
+
+	public void setLista(List<Telefono> lista) {
+		this.lista = lista;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [nombres=" + nombres + ", apellidos=" + apellidos + ", cedula=" + cedula + ", correo=" + correo
+				+ ", contrasena=" + contrasena + ", activo=" + activo + ", lista=" + lista + "]";
+	}
+
+	
+	
+	
+	
+
+
+
+	
 
 }
