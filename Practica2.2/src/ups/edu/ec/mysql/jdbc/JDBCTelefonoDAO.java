@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ups.edu.ec.dao.DAOFactory;
 import ups.edu.ec.dao.TelefonoDAO;
 import ups.edu.ec.modelo.Telefono;
 
@@ -39,8 +38,9 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
         ResultSet rs = conexionUno.query("Select * FROM telefono WHERE tel_id = " + codigo + ";");
         try {
             if (rs != null && rs.next()) {
-            	telefono = new Telefono(rs.getInt("tel_id"), rs.getString("tel_numero"), rs.getString("tel_tipo"), rs.getString("tel_operadora"));
-            	telefono.setPersona(DAOFactory.getDAOFactory().getPersonaDAO().findById(rs.getString("usu_cedula")));
+            	telefono = new Telefono( rs.getString("tel_numero"), rs.getString("tel_tipo"), rs.getString("tel_operadora"));
+            	telefono.setCodigo(rs.getInt("tel_id"));
+            	//telefono.setPersona(DAOFactory.getDAOFactory().getPersonaDAO().findById(rs.getString("usu_cedula")));
             }
         } catch (SQLException e) {
             System.out.println(">>>WARNING (JDBCPhoneDAO:read): " + e.getMessage());
@@ -58,8 +58,8 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
     }
 
     @Override
-    public boolean delete(Telefono telefono) {
-       return conexionDos.update("DELETE FROM telefono WHERE tel_id = '" + telefono.getCodigo() + "' AND usu_cedula = '" + telefono.getPersona().getCedula() + "';");
+    public boolean delete(Telefono phone) {
+        return conexionDos.update("DELETE FROM telefono WHERE tel_id = '" + phone.getCodigo() + "' AND usu_cedula = '" + phone.getPersona().getCedula() + "';");
     }
 
     @Override
@@ -73,8 +73,8 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
         ResultSet rs = conexionDos.query("SELECT * FROM telefono WHERE usu_cedula = '" + cedula + "';");
         try {
             while (rs.next()) {
-            	Telefono phone = new Telefono(rs.getInt("tel_id"), rs.getString("tel_numero"), rs.getString("tel_tipo"), rs.getString("tel_operadora"));
-              
+            	Telefono phone = new Telefono( rs.getString("tel_numero"), rs.getString("tel_tipo"), rs.getString("tel_operadora"));
+              phone.setCodigo(rs.getInt("tel_id"));
                 phones.add(phone);
             }
         } catch (SQLException e) {

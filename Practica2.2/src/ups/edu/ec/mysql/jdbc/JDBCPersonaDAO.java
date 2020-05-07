@@ -103,4 +103,42 @@ public class JDBCPersonaDAO extends JDBCGenericDAO<Persona, String> implements P
         }
         return persona; 
     }
+    
+    public List<Persona> findByIdOrMail(String context) {
+    	List<Persona> users = new ArrayList<>();
+        if (context.equals("all")) {
+            ResultSet rs = conexionUno.query("SELECT * FROM usuario;");
+            try {
+                if (rs != null && rs.next()) {
+                	Persona persona = new Persona(rs.getString("usu_cedula"), rs.getString("usu_nombres"), rs.getNString("usu_apellidos"), rs.getNString("usu_correo"), rs.getNString("usu_contrasena"), rs.getInt("usu_activo"));
+                    List<Telefono> telefonos = DAOFactory.getDAOFactory().getTelefonoDAO().findByUserId(persona.getCedula());
+                   
+                    persona.setLista(telefonos);
+                    users.add(persona);
+                }
+            } catch (SQLException e) {
+                System.out.println(">>>WARNING (JDBCUserDAO:findByIdOrMail): " + e.getMessage());
+            }
+            System.out.println("Todos los usuarios....."+users.toString());
+        } else {
+            ResultSet rs = conexionUno.query("SELECT * FROM usuario "
+                    + "WHERE usu_cedula = '" + context + "' OR usu_correo = '" + context + "';");
+            try {
+                if (rs != null && rs.next()) {
+                	Persona persona = new Persona(rs.getString("usu_cedula"), rs.getString("usu_nombres"), rs.getNString("usu_apellidos"), rs.getNString("usu_correo"), rs.getNString("usu_contrasena"), rs.getInt("usu_activo"));
+                    List<Telefono> telefonos = DAOFactory.getDAOFactory().getTelefonoDAO().findByUserId(persona.getCedula());
+                   
+                    persona.setLista(telefonos);
+                    users.add(persona);
+                }
+            } catch (SQLException e) {
+                System.out.println(">>>WARNING (JDBCUserDAO:findByIdOrMail): " + e.getMessage());
+            }
+        }
+
+        return users;
+    }
+    
+    
+    
 }

@@ -16,8 +16,8 @@ public class Telefono implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Telefono(int codigo, String numero, String tipo, String operadora) {
-        this.codigo = codigo;
+	public Telefono( String numero, String tipo, String operadora) {
+        
         this.numero = numero;
         this.tipo = tipo;
         this.operadora = operadora;

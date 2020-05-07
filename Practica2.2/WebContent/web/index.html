@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -53,6 +55,11 @@
 
 
 <!-- Navigation -->
+
+<div>
+
+  <c:set var = "user" value = "${requestScope['user']}" />
+  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
   <div class="ui container col-xs-2 col-sm-2 col-md-1 col-mg-1">
     <a class="ui navbar-brand  top aligned tiny image" href="index.html">
@@ -63,12 +70,22 @@
         </button>
         
        <div class="rigth menu">
-			<div class="item ui">
-				<div class="ui icon input">
-					<input type="text" placeholder="Search..." size="70"> <i
-						class="search link icon"></i>
+			<form action="/Practica2.2/Busqueda">
+
+			<div class="rigth menu">
+				<div class="item ui">
+					<div class="ui icon input">
+						<input name="usuario" type="text" placeholder="Search..." size="70"> <i
+							class="search link icon"></i>
+							<input type="submit" class="ui blue submit button" value="Buscar">
+							
+					</div>
 				</div>
 			</div>
+			
+			</form>
+			
+			
 		</div> 
         
         
@@ -107,7 +124,7 @@
 
 
 
-
+</div>
 
 </header>
 
