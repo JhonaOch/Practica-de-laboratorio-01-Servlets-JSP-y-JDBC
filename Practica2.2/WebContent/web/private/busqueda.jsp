@@ -39,7 +39,7 @@
 
 
 <header>
-<c:set var = "users" value = "${requestScope['users']}" />
+	<c:set var="users" value="${requestScope['users']}" />
 
 
 	<!-- Navigation -->
@@ -59,11 +59,15 @@
 				class="ui collapse navbar-collapse col-xs-2 col-sm-2 col-md-1 col-mg-1"
 				id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="/Practica2.2/web/index.html">Home <span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link" href="Agenda">Regresar
+							<span class="sr-only">(current)</span>
 					</a></li>
+
+
 					<li class="nav-item"><a class="nav-link"
 						href="Agenda?logout=true">Logout</a></li>
+
+
 
 				</ul>
 
@@ -103,10 +107,10 @@
 
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>Usuario</th>
+								<th>Correo</th>
 								<th>Numero</th>
-								<th>Tipo</th>
-								
+
 
 							</tr>
 						</thead>
@@ -126,15 +130,17 @@
 								<tr data-toggle="modal" data-target="#exampleModal${i}"
 									data-whatever="@mdo">
 									<td>
-	
-											<div class="item">
-												<img class="ui avatar image" src="/Practica2.2/web/img/busca.png">
-												<div class="content">
-													<div class="header"><h2>${user.nombres}-${user.apellidos}</h2>
-													
-													  </div>
+
+										<div class="item">
+											<img class="ui avatar image"
+												src="/Practica2.2/web/img/busca.png">
+											<div class="content">
+												<div class="header">
+													<h2>${user.nombres}-${user.apellidos}</h2>
+
 												</div>
 											</div>
+										</div>
 									</td>
 									<td><h2>${user.correo}</h2></td>
 									<td><h2>${user.lista[0].numero}</h2></td>
@@ -145,14 +151,12 @@
 									aria-hidden="true">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
-										<h2 align="center">Usuario</h2>
+											<h2 align="center">Usuario</h2>
 											<div class="modal-header">
-											
-											
-												<h3 class="modal-title" id="exampleModalLabel">${user.nombres}
-													${user.apellidos}
 
-												</h3>
+
+												<h3 class="modal-title" id="exampleModalLabel">${user.nombres}
+													${user.apellidos}</h3>
 												<button type="button" class="close" data-dismiss="modal"
 													aria-label="Close">
 													<span aria-hidden="true">&times;</span>
@@ -170,21 +174,22 @@
 												</c:forEach>
 											</div>
 											<div class="modal-footer">
-											
-													
-													<div class="modal-header">
-											 <a href="mailto:${user.correo}"
-														class="ui small primary labeled icon button mail-user" style="background-color: rgb(42, 44, 46)">
-														<i class="envelope icon"></i> Enviar correo
+
+
+												<div class="modal-header">
+													<a href="mailto:${user.correo}"
+														class="ui small primary labeled icon button mail-user"
+														style="background-color: rgb(42, 44, 46)"> <i
+														class="envelope icon"></i> Enviar correo
 													</a>
-													</div>
-										</div>
+												</div>
 											</div>
-											
+										</div>
+
 									</div>
 								</div>
 
-							
+
 							</c:forEach>
 
 						</tbody>

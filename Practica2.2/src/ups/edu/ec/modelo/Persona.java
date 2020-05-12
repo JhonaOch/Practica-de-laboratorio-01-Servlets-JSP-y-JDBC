@@ -4,28 +4,27 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Persona implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-    private String nombres;
+	private String nombres;
 	private String apellidos;
 	private String cedula;
 	private String correo;
 	private String contrasena;
 	private int activo;
 	private List<Telefono> lista;
-	
-	
-	public Persona() {	
+
+	public Persona() {
 	}
-	
+
 	public Persona(String cedula, String nombres, String apellidos, String correo, String contrasena, int activo) {
-        this.cedula = cedula;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.activo = activo;
-    }
+		this.cedula = cedula;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.correo = correo;
+		this.contrasena = contrasena;
+		this.activo = activo;
+	}
 
 	public String getNombres() {
 		return nombres;
@@ -88,14 +87,5 @@ public class Persona implements Serializable {
 		return "Persona [nombres=" + nombres + ", apellidos=" + apellidos + ", cedula=" + cedula + ", correo=" + correo
 				+ ", contrasena=" + contrasena + ", activo=" + activo + ", lista=" + lista + "]";
 	}
-
-	
-	
-	
-	
-
-
-
-	
 
 }

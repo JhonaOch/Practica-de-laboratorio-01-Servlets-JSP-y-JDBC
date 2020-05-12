@@ -3,25 +3,24 @@ package ups.edu.ec.modelo;
 import java.io.Serializable;
 
 public class Telefono implements Serializable {
-	
-	private static final long serialVersionUID=1L;
+
+	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private String numero;
 	private String tipo;
 	private String operadora;
 	private Persona persona;
-	
-	
+
 	public Telefono() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Telefono( String numero, String tipo, String operadora) {
-        
-        this.numero = numero;
-        this.tipo = tipo;
-        this.operadora = operadora;
-    }
+
+	public Telefono(String numero, String tipo, String operadora) {
+
+		this.numero = numero;
+		this.tipo = tipo;
+		this.operadora = operadora;
+	}
 
 	public int getCodigo() {
 		return codigo;
@@ -68,8 +67,5 @@ public class Telefono implements Serializable {
 		return "Telefono [codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora
 				+ ", persona=" + persona + "]";
 	}
-	
-
-	
 
 }

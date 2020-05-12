@@ -76,8 +76,8 @@
 				class="ui collapse navbar-collapse col-xs-2 col-sm-2 col-md-1 col-mg-1"
 				id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="/Practica2.2/web/index.html">Home <span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link" href="Agenda">Home
+							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="Agenda?logout=true">Logout</a></li>
@@ -158,7 +158,6 @@
 														</button>
 													</div>
 
-													#Editar
 
 													<div class="modal-body mb-0 text-center"></div>
 													<form action="/Practica2.2/Editar" method="POST">
@@ -230,33 +229,47 @@
 														</button>
 													</div>
 
-													#Editar
 
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5>Eliminar numero.</h5>
+
+
+
+
+
+
+
+													<div>
+														<div>
+															<div></div>
+															<div>
+																<h4 style="color: blue;">El numero
+																	${telefono.numero} se eliminara de tu agenda.</h4>
 															</div>
-															<div class="modal-body">
-																<p>El numero ${telefono.numero} se eliminara de tu
-																	agenda.</p>
-															</div>
+
 															<div class="modal-footer">
-																<button type="button" class="btn btn-default"
-																	data-dismiss="modal">Cancelar</button>
+
 																<a
 																	href="/Practica2.2/Editar?delete=true&idTelefono=${telefono.codigo}"
-																	class="btn btn-danger btn-ok">Eliminar</a>
+																	class="btn btn-danger btn-ok"
+																	style="color: rgb(42, 44, 46)">Eliminar</a>
+
+
+
 															</div>
+
+
+
+
+
+
 														</div>
 													</div>
-</div>
-
-
 												</div>
-												<!--/.Content-->
-
 											</div>
+
+
+										</div> <!--/.Content-->
+
+
 									</td>
 
 
